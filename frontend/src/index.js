@@ -10,4 +10,5 @@ root.render(
       <h2>home</h2>
     </div>
   </React.StrictMode>
+  
 );
