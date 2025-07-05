@@ -1,7 +1,12 @@
 import React from 'react';
 function Hero() {
     return ( 
-        <h1>Hero</h1>
+
+        <div className='container mb-5'>
+            <div className='row text-center' >
+                <img src="/assets/homeHero.png" alt="Zerodha Home Hero" className='mb-5'/>
+            </div>
+        </div>
      );
 }
 
