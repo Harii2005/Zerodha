@@ -13,12 +13,11 @@ function HomePage() {
         <>
             < Navbar />
             < Hero />            
-            < OpenAccount />
             < Awards/>
             < Status />
             < Pricing />
             < Education />
-
+            < OpenAccount />
             < Footer />
         </>
      );
