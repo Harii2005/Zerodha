@@ -2,7 +2,10 @@ import React from 'react';
 
 function Universe() {
     return (
-        <h1>Universe</h1>
+        <div className='container'>
+            
+            <h1>The Zerodha Universe</h1>
+        </div>
     );
 }
 
