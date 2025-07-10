@@ -3,7 +3,7 @@ import Hero from "./Hero";
 import LeftSection from "./LeftSection";
 import RightSection from "./RightSection";
 import Universe from "./Universe";
-import OpenAccount from "../OpenAccount";
+
 
 function ProductsPage() {
   return (
@@ -54,10 +54,10 @@ function ProductsPage() {
         googleplay=""
         appstore=""
       />
-      <p className="fs-5 text-center my-5"> Want to know more about our technology stack? Check out the <a href="" style={{textDecoration : "none"}}>Zerodha.tech</a> blog. </p>
+      <div className="mt-5 border-top"></div>
+      <p className="fs-5 text-center mt-5"> Want to know more about our technology stack? Check out the <a href="" style={{textDecoration : "none"}}>Zerodha.tech</a> blog. </p>
 
       <Universe />
-      <OpenAccount />
     </>
   );
 }
