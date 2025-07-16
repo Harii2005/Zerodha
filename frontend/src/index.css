@@ -15,3 +15,26 @@ code {
 .nav-link{
   margin-left: 25px;
 }
+
+#supportHero{
+  background-color: #387ED1;
+  color: #FFFFFF;
+}
+
+#supportHero a{
+  color: #FFFFFF;
+}
+
+#supportWrapper{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px
+}
+
+#supportHero input {
+  padding: 18px  50px;
+  width: 90%;
+  font-size: 20px;
+  border-radius: 10px;
+  border: none;
+}

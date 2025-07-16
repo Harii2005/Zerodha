@@ -12,26 +12,26 @@ function Awards() {
                         <div className='row'>
                             <div className='col-6'>
                                 <ul>
-                                    <li style={{fontSize: "0.9rem"}}>
+                                    <li>
                                         <p> Futures and Options </p>
                                     </li>
-                                    <li style={{fontSize: "0.9rem"}}>
+                                    <li>
                                         <p> Commodity derivatives </p>
                                     </li>
-                                    <li style={{fontSize: "0.9rem"}}>
+                                    <li>
                                         <p> Currency derivatives </p>
                                     </li>    
                                 </ul>
                             </div>
                             <div className='col-6'>
                                 <ul>
-                                    <li style={{fontSize: "0.9rem"}}>
+                                    <li>
                                         <p> Stocks & IPOs </p>
                                     </li>
-                                    <li style={{fontSize: "0.9rem"}}>
+                                    <li>
                                         <p> Direct mutual funds </p>
                                     </li>
-                                    <li style={{fontSize: "0.9rem"}}>
+                                    <li>
                                         <p> Bonds and Govt .Securities </p>
                                     </li>    
                                 </ul>
