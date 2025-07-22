@@ -15,6 +15,7 @@ const Positions = () => {
             <th>LTP</th>
             <th>P&L</th>
             <th>Chg.</th>
+            
           </tr>
               {positions.map((stock , index) =>{
                 const currValue = stock.price * stock.qty;
