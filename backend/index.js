@@ -25,7 +25,7 @@ app.listen(port, () => {
     });
 });
 
-//dummy data for holdings
+// //dummy data for holdings
 // app.get('/addHoldings' , async(req , res)=>{
 //     let tempHoldings = [{
 //         name: "BHARTIARTL",
@@ -154,7 +154,7 @@ app.listen(port, () => {
 // });
 
 
-//adding temory data for Positions
+// //adding temory data for Positions
 // app.get('/addPositions' , async(req , res)=>{
 //     let tempPositions = [{
 //         product: "CNC",
@@ -180,6 +180,7 @@ app.listen(port, () => {
 //     //adding temperory data
 //     tempPositions.forEach((item)=>{
 //         let newPosition = new PositionsModel({
+//             product : item.product,
 //             name: item.name, 
 //             qty: item.qty,
 //             avg: item.avg, 
