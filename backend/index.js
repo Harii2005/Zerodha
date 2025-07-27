@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const app = express();
 const {HoldingModel} = require('./models/HoldingModel');
 const{PositionsModel} = require('./models/PositionsModels');
+const {OrderModel} = require('./models/OrderModel');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
@@ -200,6 +201,17 @@ app.listen(port, () => {
 app.get('/allHoldings' , async(req , res) => {
   let allHoldings = await HoldingModel.find({});
   res.json(allHoldings);
+})
+
+app.post('/newOrders' , async(req , res) =>{
+  let newOrder = new OrderModel({
+    name : req.body.name,
+    qty: req.body.qty,
+    price: req.body.price,
+    mode: req.body.mode
+  });
+  await newOrder.save();
+  res.send("done ✅ ")
 })
 
 app.get('/allPositions' , async(req , res) => {
