@@ -1,68 +1,40 @@
-import React, { useState, useContext } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+
 import GeneralContext from "./GeneralContext";
 
+import "./BuyActionWindow.css";
+
 const BuyActionWindow = ({ uid }) => {
-  const [stockQuantity, setStockQuantity] = useState(1);
-  const [stockPrice, setStockPrice] = useState(0);
-
-  const generalContext = useContext(GeneralContext);
-
-  const handleBuyClick = () => {
-    // Handle buy logic here
-    console.log(`Buying ${stockQuantity} shares of ${uid} at ${stockPrice}`);
-    generalContext.closeBuyWindow();
-  };
+  const { closeBuyWindow } = useContext(GeneralContext); 
 
   const handleCancelClick = () => {
-    generalContext.closeBuyWindow();
+    closeBuyWindow(); 
   };
 
   return (
-    <div className="container" id="buy-window" draggable="true">
+    <div className="containerClass" id="buy-window" draggable="true">
       <div className="regular-order">
         <div className="inputs">
           <fieldset>
-            <legend>
-              <h4>Buy {uid}</h4>
-            </legend>
-
-            <div className="input-group">
-              <label htmlFor="qty">Qty.</label>
-              <input
-                type="number"
-                name="qty"
-                id="qty"
-                step="1"
-                value={stockQuantity}
-                onChange={(e) => setStockQuantity(e.target.value)}
-              />
-            </div>
-
-            <div className="input-group">
-              <label htmlFor="price">Price</label>
-              <input
-                type="number"
-                name="price"
-                id="price"
-                step="0.05"
-                value={stockPrice}
-                onChange={(e) => setStockPrice(e.target.value)}
-              />
-            </div>
+            <legend>Qty.</legend>
+            <input type="number" name="qty" id="qty" />
+          </fieldset>
+          <fieldset>
+            <legend>Price</legend>
+            <input type="number" name="price" id="price" step="0.05" />
           </fieldset>
         </div>
+      </div>
 
-        <div className="buttons">
-          <span>
-            <button className="btn btn-blue" onClick={handleBuyClick}>
-              Buy
-            </button>
-          </span>
-          <span>
-            <button className="btn btn-grey" onClick={handleCancelClick}>
-              Cancel
-            </button>
-          </span>
+      <div className="buttons">
+        <span>Margin required ₹140.65</span>
+        <div>
+          <Link className="btn btn-blue">Buy</Link>
+          <Link to="" className="btn btn-grey" onClick={handleCancelClick}>
+            Cancel
+          </Link>
         </div>
       </div>
     </div>
