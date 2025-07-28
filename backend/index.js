@@ -214,6 +214,14 @@ app.post('/newOrders' , async(req , res) =>{
   res.send("done ✅ ")
 })
 
+
+//fetching data of orders from mongoDb
+app.get('/allOrders' , async (req , res) =>{
+  let allOrders = await OrderModel.find({});
+  res.json(allOrders);
+})
+
+// fetching data of Positions from mongoDb
 app.get('/allPositions' , async(req , res) => {
   let allPositions = await PositionsModel.find({});
   res.json(allPositions);
