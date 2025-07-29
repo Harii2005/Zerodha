@@ -6,7 +6,7 @@ import axios from "axios";
 const Orders = () => {
   const [allOrders, setallOrders] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:8080/allOrders").then((res) => {
+    axios.get("http://localhost:3002/allOrders").then((res) => {
       console.log(res.data);
       setallOrders(res.data);
     });
@@ -59,7 +59,7 @@ const Orders = () => {
             </table>
           </div>
         </div>
-      )}      
+      )}
     </div>
   );
 };

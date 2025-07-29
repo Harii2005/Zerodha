@@ -3,16 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 
-const Signup = () => {
+const Login = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
-    username: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const { email, password, username } = inputValue;
+  const { email, password } = inputValue;
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +27,7 @@ const Signup = () => {
     });
   const handleSuccess = (msg) =>
     toast.success(msg, {
-      position: "bottom-right",
+      position: "bottom-left",
     });
 
   const handleSubmit = async (e) => {
@@ -37,12 +36,13 @@ const Signup = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/auth/signup", // Fixed: correct endpoint
+        "http://localhost:3002/auth/login", // Fixed: correct endpoint
         {
           ...inputValue,
         },
         { withCredentials: true }
       );
+      console.log(data);
       const { success, message, user } = data;
       if (success) {
         handleSuccess(message);
@@ -59,7 +59,7 @@ const Signup = () => {
         handleError(message);
       }
     } catch (error) {
-      console.log("Signup error:", error);
+      console.log("Login error:", error);
       handleError("Network error. Please try again.");
     } finally {
       setIsSubmitting(false);
@@ -69,7 +69,6 @@ const Signup = () => {
       ...inputValue,
       email: "",
       password: "",
-      username: "",
     });
   };
 
@@ -78,8 +77,8 @@ const Signup = () => {
       <div className="row justify-content-center">
         <div className="col-md-6 col-lg-5">
           <div className="text-center mb-4">
-            <h2 className="mb-3">Sign up now</h2>
-            <p className="text-muted">Or track your existing application.</p>
+            <h2 className="mb-3">Login to your account</h2>
+            <p className="text-muted">Welcome back to Zerodha</p>
           </div>
 
           <form
@@ -96,21 +95,6 @@ const Signup = () => {
                 name="email"
                 value={email}
                 placeholder="Enter your email"
-                onChange={handleOnChange}
-                required
-              />
-            </div>
-
-            <div className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Username <span className="text-danger">*</span>
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                name="username"
-                value={username}
-                placeholder="Enter your username"
                 onChange={handleOnChange}
                 required
               />
@@ -144,22 +128,22 @@ const Signup = () => {
                     role="status"
                     aria-hidden="true"
                   ></span>
-                  Creating Account...
+                  Logging in...
                 </>
               ) : (
-                "Continue"
+                "Login"
               )}
             </button>
 
             <div className="text-center">
               <small className="text-muted">
-                Already have an account?
+                Don't have an account?
                 <Link
-                  to="/login"
+                  to="/signup"
                   className="text-decoration-none ms-1"
                   style={{ color: "#387ED1" }}
                 >
-                  Login
+                  Sign up
                 </Link>
               </small>
             </div>
@@ -171,4 +155,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

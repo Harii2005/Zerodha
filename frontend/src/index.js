@@ -11,6 +11,8 @@ import Pricing from "./landing_page/pricing/PricingPage";
 import Footer from "./landing_page/Footer";
 import Navbar from "./landing_page/Navbar";
 import NotFound from "./landing_page/NotFound.js";
+import Login from "./landing_page/Login/login.js";
+import "react-toastify/dist/ReactToastify.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,6 +25,7 @@ root.render(
       <Route path="/support" element={<Support />} />
       <Route path="/products" element={<Products />} />
       <Route path="/pricing" element={<Pricing />} />
+      <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     <Footer />
