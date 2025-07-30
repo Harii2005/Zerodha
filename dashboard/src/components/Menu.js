@@ -1,17 +1,31 @@
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Menu = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
-  const [isProfileDropdownOpen, setIsProfileDropdownOpen] = useState(false);
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);
   };
 
-  const handleProfileClick = (index) => {
-    setIsProfileDropdownOpen(!isProfileDropdownOpen);
+  const handleLogout = () => {
+    // Clear all authentication data
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
+    // Clear cookies by setting them to expire
+    document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+    // Show logout success message
+    toast.success("Logged out successfully!", {
+      position: "top-right",
+    });
+
+    // Redirect to frontend home page
+    setTimeout(() => {
+      window.location.href = "http://localhost:3000";
+    }, 1000);
   };
 
   const menuClass = "menu";
@@ -88,9 +102,24 @@ const Menu = () => {
               </p>
             </Link>
           </li>
+          <li>
+            <button
+              className="menu logout-btn"
+              onClick={handleLogout}
+              style={{
+                background: "none",
+                border: "none",
+                cursor: "pointer",
+                padding: "0",
+                margin: "0",
+              }}
+            >
+              Logout
+            </button>
+          </li>
         </ul>
         <hr />
-        <div className="profile" onClick={handleProfileClick}>
+        <div className="profile" style={{ position: "relative" }}>
           <div className="avatar">ZU</div>
           <p className="username">USERID</p>
         </div>

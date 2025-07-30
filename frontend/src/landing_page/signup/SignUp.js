@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";// used for error handling client side
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -37,13 +37,13 @@ const Signup = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/auth/signup", // Fixed: correct endpoint
+        "http://localhost:3002/auth/signup", 
         {
           ...inputValue,
         },
         { withCredentials: true }
       );
-      const { success, message, user } = data;
+      const { success, message, user } = data;//data is fetched from the POST request
       if (success) {
         handleSuccess(message);
 
@@ -164,7 +164,7 @@ const Signup = () => {
               </small>
             </div>
           </form>
-          <ToastContainer />
+          <ToastContainer /> 
         </div>
       </div>
     </div>
